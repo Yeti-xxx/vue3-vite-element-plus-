@@ -21,6 +21,7 @@ service.interceptors.request.use(config => {
         if (config.method === 'post') {
             config.headers["content-type"] = "application/x-www-form-urlencoded"; // post 请求
             config.data = qs.stringify(config.data); // 序列化,比如表单数据
+            console.log(config.data);
         } else {
             config.headers["content-type"] = "application/json"; // 默认类型
         }

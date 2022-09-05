@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import Login from '../components/Login.vue'
 import Home from '../components/Home.vue'
 import User from '../components/User.vue'
+import Update from '../components/Update.vue'
 const Router = createRouter({
     history: createWebHashHistory(),
     // 声明路由规则
@@ -11,7 +12,8 @@ const Router = createRouter({
         {
             path: '/home', component: Home, name: 'home',
             children: [
-                { path: 'userinfo', component: User }
+                { path: 'userinfo', component: User },
+                { path: 'updateuserinfo', component: Update }
             ]
         },
     ]

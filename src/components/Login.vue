@@ -2,10 +2,10 @@
   <div class="login">
     <el-card class="box-card">
       <el-form label-position="right" label-width="100px" style="">
-        <el-form-item label="用户名" :model="form">
+        <el-form-item label="用户名" >
           <el-input v-model="form.username" />
         </el-form-item>
-        <el-form-item label="密码" :model="form">
+        <el-form-item label="密码" >
           <el-input v-model="form.password" />
         </el-form-item>
         <el-form-item class="loginButton">
@@ -39,7 +39,7 @@ export default {
         data: this.form
       }).then(res => {
         const data = res.data
-        console.log(data);
+        // console.log(data);
         if (data.status !== 0) {
           return this.$message.error('登录失败！')
         }
@@ -71,6 +71,12 @@ export default {
   width: 100%;
   height: 100%;
   position: absolute;
+
+  background-image: -moz-linear-gradient(45deg, rgb(168, 225, 255), rgb(179, 181, 255));
+
+  background-image: -webkit-linear-gradient(45deg, rgb(168, 225, 255), rgb(179, 181, 255));
+
+  background-image: linear-gradient(45deg, rgb(168, 225, 255), rgb(179, 181, 255));
 
 }
 

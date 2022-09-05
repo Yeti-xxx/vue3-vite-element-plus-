@@ -35,7 +35,7 @@ export default {
   methods: {
     getUserInfo() {
       service({
-        methods: 'get',
+        method: 'get',
         url: '/my/userinfo'
       }).then(res => {
         if (res.data.status !== 0) {

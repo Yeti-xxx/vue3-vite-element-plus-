@@ -16,7 +16,7 @@
                         <el-col :span="24">
                             <el-menu default-active="2" class="el-menu-vertical-demo AsideMenu" @open="handleOpen"
                                 @close="handleClose">
-                               
+
                                 <el-menu-item index="2">
                                     <el-icon>
                                         <icon-menu />
@@ -24,6 +24,12 @@
                                     <span @click="UserCenter">用户中心</span>
                                 </el-menu-item>
                                 <el-menu-item index="4">
+                                    <el-icon>
+                                        <setting />
+                                    </el-icon>
+                                    <span @click="updateUserInfo">修改信息</span>
+                                </el-menu-item>
+                                <el-menu-item index="6">
                                     <el-icon>
                                         <setting />
                                     </el-icon>
@@ -56,19 +62,21 @@ export default {
         this.getUserInfo()
 
     },
-    mounted(){
+    mounted() {
         this.UserCenter()
     },
     methods: {
         getUserInfo() {
             service({
-                methods: 'get',
+                method: 'get',
                 url: '/my/userinfo'
             }).then(res => {
+                console.log(res.data);
                 if (res.data.status !== 0) {
                     return this.$message.error('获取用户信息失败')
                 } else {
                     this.userInfo = res.data.data
+
 
                 }
             })
@@ -77,8 +85,11 @@ export default {
             localStorage.removeItem('token')
             this.$router.push('/login')
         },
-        UserCenter(){
+        UserCenter() {
             this.$router.push('/home/userinfo')
+        },
+        updateUserInfo(){
+            this.$router.push('/home/updateuserinfo')
         }
     }
 }
